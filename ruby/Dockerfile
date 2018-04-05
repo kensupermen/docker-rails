@@ -18,10 +18,12 @@ RUN apt-get -y update && apt-get install -y git-core \
   libncurses5-dev \
   automake \
   libtool \
+  sqlite3 \
   procps \
   rubygems \
   ruby \
   ruby-dev \
+  nodejs \
   bison
 
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
@@ -30,7 +32,6 @@ ENV PATH /usr/local/rvm/bin:$PATH
 RUN rvm install 1.9.3
 
 #install rails
-RUN apt-get update && apt-get install -y nodejs
 ENV PATH /usr/local/rvm/rubies/ruby-1.9.3/bin:$PATH
 
 ENV MYSQL_PWD 123456
