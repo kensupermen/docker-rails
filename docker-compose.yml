@@ -1,0 +1,19 @@
+version: '2'
+services:
+  #create container nginx
+  nginx:
+    image: ubuntu-nginx
+    depends_on:
+     - ruby
+    ports:
+     - "80:80"
+
+  #create container ruby
+  ruby:
+    build: .
+    command: bundle exec rails s -b 0.0.0.0
+    ports:
+     - "3000"
+    volumes:
+     - .:/flo
+
