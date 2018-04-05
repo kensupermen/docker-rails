@@ -14,3 +14,6 @@ RUN rm -rf /etc/nginx/conf.d/default.conf
 
 #copy file config from host
 COPY default.conf /etc/nginx/conf.d/
+
+ADD . /frontend
+WORKDIR /frontend
